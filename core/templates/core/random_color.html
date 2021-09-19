@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Color Project</title>
+
+	 <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		.color-container {
+			width:  100%;
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-around;
+		}
+
+		.info-card {
+			width: 120px;
+			background-color: #FFF;
+			padding: 18px 20px 15px 20px;
+			border-radius: 4px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			font-family: sans-serif;
+		}
+
+		.info-card .color-code {
+			font-family: 'Share Tech Mono', monospace;
+			font-size: 30px;
+			letter-spacing: 1px;
+			margin: 0 0 12px 0;
+			padding: 0;
+		}
+
+		.refresh-btn {
+			padding: 7px;
+			width: 100%;
+			background-color: #000;
+			border: 1px solid #000;
+			color: #FFF;
+			border-radius: 4px;
+			font-size: 12px;
+			text-decoration: none;
+			text-transform: uppercase;
+			text-align: center;
+		}
+
+		.refresh-btn:hover {
+			margin: 0 10%;
+			padding: 7px;
+			width: 100%;
+			background-color: #333;
+			border: 1px solid #333;
+			color: #FFF;
+			border-radius: 4px;
+			font-size: 12px;
+			text-decoration: none;
+			text-transform: uppercase;
+			text-align: center;
+		}
+
+		::selection {
+			background: #000; /* WebKit/Blink Browsers */
+			color: #FFF;
+		}
+
+		::-moz-selection {
+			background: #000; /* Gecko Browsers */
+			color: #FFF;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="color-container" style="background-color: #{{ color_code }};">
+		<div class="info-card">
+			<p class="color-code">#{{ color_code }}</p>
+			<p>{{ captured_color }}</p>
+			<a href="{% url 'random_color' %}" class="refresh-btn">Next Color</a>
+		</div>
+	</div>
+</body>
+</html>
